@@ -243,7 +243,30 @@ void ListClear(Node*& headPtr, int noMsg)
         << endl;
 }
 
-void RemOddDupEven(Node* headPtr){
+void RemOddDupEven(Node*& headPtr){
 
+    // Create a pointer to a pointer that points at head pointer.
+    Node** cursor= &headPtr;
+
+    // Error Checking | Check for reference to empty list.
+    if(headPtr == 0){
+        cerr << "RemOddDupEven() attempted on empty list" << endl;
+        return;
+    }
+    while(*cursor){
+        if(!((*cursor)->data % 2)){
+            /// Even node found in referenced list. Duplicate current.
+            Node *newNodePtr = new Node;       // Create new node.
+            newNodePtr->link = (*cursor)->link;// Copy link of current.
+            newNodePtr->data = (*cursor)->data;// Copy data of current
+            (*cursor)->link = newNodePtr;      // Insert new node after current.
+            cursor = &(*cursor)->link->link;   // Current is the node after new.
+        } else {
+            /// Odd node found in referenced list. Remove it.
+            Node *tempPtr = *cursor; // Keep track of current.
+            *cursor = tempPtr->link; // Move past current.
+            delete tempPtr;          // Remove odd node.
+        }
+    }
 }
 

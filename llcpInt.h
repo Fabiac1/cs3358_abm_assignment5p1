@@ -20,6 +20,6 @@ void   ShowAll(std::ostream& outs, Node* headPtr);
 void   FindMinMax(Node* headPtr, int& minValue, int& maxValue);
 double FindAverage(Node* headPtr);
 void   ListClear(Node*& headPtr, int noMsg = 0);
-void RemOddDupEven(Node* headPtr); // First Prototype Attempt.
+void RemOddDupEven(Node*& headPtr); //Added prototype
 
 #endif

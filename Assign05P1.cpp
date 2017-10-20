@@ -67,9 +67,17 @@ int main()
             intArr1[used1++] = intArr0[intCount];
          }
 
-      // DebugShowCase(testCasesDone, testCasesToDo, intArr0, used0);
+      //DebugShowCase(testCasesDone, testCasesToDo, intArr0, used0);
 
       RemOddDupEven(head1);
+
+//      /// MY DEBUG
+//      cout << endl << "After call to function RemOddDupEven() " << endl;
+//      cout << "List: ";
+//      ShowAll(cout, head1);
+//      cout << "Length after RemOddDupEven(): " << FindListLength(head1) << endl;
+//      cout << endl;
+//      ///
 
       iLenChk1 = ListLengthCheck(head1, used1);
       if (iLenChk1 != 0)
